@@ -692,7 +692,7 @@ header {
 
 @media screen and (max-width: 768px) {
     .contact-mail a {
-        width: 60%;
+        width: 75%;
         max-width: 320px;
         padding: 0.75rem 1.5rem;
         font-size: 0.9rem;
