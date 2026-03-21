@@ -5,14 +5,10 @@
 
 ## 公開URL
 
-- GitHub Pages: https://asata.github.io/リポジトリ名/# ポートフォリオサイト
+https://asataku0415-lgtm.github.io/Portfolio/
 
 エンジニア転職を目指してスクールに通い、合格後にポートフォリオの重要性を知り、初めて制作したポートフォリオサイトです。  
 今後の就職活動だけでなく、個人でのお仕事の窓口としても使っていきたいと考えています。
-
-## 公開URL
-
-https://asataku0415-lgtm.github.io/Portfolio/
 
 ## サイトの内容
 
