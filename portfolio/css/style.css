@@ -1,0 +1,796 @@
+@charset "UTF-8";
+
+/* Base
+------------------------------------------------------------*/
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: #4c3b2f;
+    line-height: 1.75;
+}
+
+a,
+a:hover {
+    text-decoration: none;
+}
+
+a:hover {
+    color: #fff;
+    background-color: #071e3d;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: bottom;
+}
+
+
+/* 複数箇所で使いまわす指定
+------------------------------------------------------------*/
+
+.text-center {
+    text-align: center;
+}
+
+h2 {
+    margin: 0 0 5rem;
+    font-size: 3rem;
+    font-weight: 300;
+    color: #a8a698;
+    letter-spacing: .3125rem;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 3rem;
+        letter-spacing: 0.2rem;
+    }
+}
+
+/* ヘッダー部分
+------------------------------------------------------------*/
+/* ヘッダー全体 */
+header {
+    background-color: #ffffff;
+    padding: 2rem 1rem;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding-top: 2.4rem;
+}
+
+.global-nav {
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .global-nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #ffffff;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height .3s ease;
+        justify-content: flex-start;
+    }
+
+}
+
+.global-nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .global-nav ul {
+        display: block;
+        padding: 0.75rem 0;
+        gap: 0;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .global-nav li {
+        padding: 0.5rem 0;
+    }
+}
+
+.global-nav li::before {
+    content: "/";
+    margin-right: 0.5rem;
+    color: #b89b7e;
+}
+
+@media (max-width: 768px) {
+    .global-nav li::before {
+        content: "";
+        margin-right: 0;
+    }
+}
+
+.global-nav li:first-child::before {
+    content: "";
+}
+
+.global-nav a {
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #5c3b1e;
+    padding: 0.25rem 0;
+    border-bottom: 2px solid transparent;
+    text-decoration: none;
+}
+
+.global-nav a:hover {
+    color: #5c3b1e;
+    background-color: transparent;
+    border-bottom-color: #b89b7e;
+}
+
+@media (max-width: 768px) {
+    .global-nav.is-open {
+        max-height: 200px;
+    }
+}
+
+/* ハンバーガーボタン（PCでは非表示） */
+.hamburger {
+    display: none;
+    width: 32px;
+    height: 24px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+}
+
+.hamburger span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #5c3b1e;
+    border-radius: 2px;
+    transition: transform .3s ease, opacity .3s ease, top .3s ease, bottom .3s ease;
+}
+
+.hamburger span:nth-child(1) {
+    top: 0;
+}
+
+@media (max-width: 768px) {
+    .hamburger.is-open span:nth-child(1) {
+        top: 10px;
+        transform: rotate(45deg);
+    }
+}
+
+.hamburger span:nth-child(2) {
+    top: 10px;
+}
+
+@media (max-width: 768px) {
+    .hamburger.is-open span:nth-child(2) {
+        opacity: 0;
+    }
+}
+
+.hamburger span:nth-child(3) {
+    bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .hamburger.is-open span:nth-child(3) {
+        bottom: 10px;
+        transform: rotate(-45deg);
+    }
+}
+
+.visually-hidden {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    width: 1px;
+    height: 1px;
+    white-space: nowrap;
+}
+
+/* プロフィール部分
+------------------------------------------------------------*/
+.profile {
+    background-color: #ffffff;
+}
+
+.profile .container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    max-width: 1215px;
+    margin: 6rem auto;
+}
+
+@media screen and (max-width: 768px) {
+    .profile .container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin: 3rem auto;
+        padding: 0 1rem;
+    }
+}
+
+.profile-name {
+    padding: 0 0 3.25rem 0;
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 500;
+    letter-spacing: .1875rem;
+    line-height: normal;
+    color: #b89b7e;
+}
+
+@media screen and (max-width: 768px) {
+    .profile-name {
+        font-size: 1.125rem;
+        padding-bottom: 0.75rem;
+        letter-spacing: 0.125rem;
+    }
+}
+
+.profile-name span {
+    display: block;
+    font-size: 3.5rem;
+    letter-spacing: .3125rem;
+    color: #5c3b1e;
+}
+
+@media screen and (max-width: 768px) {
+    .profile-name span {
+        font-size: 2.25rem;
+        letter-spacing: 0.25rem;
+    }
+}
+
+.profile-introduction {
+    margin: 0 0 3.75rem;
+}
+
+@media screen and (max-width: 768px) {
+    .profile-introduction {
+        margin-bottom: 2rem;
+        font-size: 0.875rem;
+        line-height: 1.6;
+    }
+}
+
+.profile-image {
+    margin: 3.75rem 0 0 2.5rem;
+    border-radius: 50%;
+}
+
+@media screen and (max-width: 768px) {
+    .profile-image {
+        margin: 1.5rem auto 0;
+        width: 140px;
+        height: 140px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+}
+
+.profile-to-contact {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+}
+
+.profile-to-contact a {
+    color: #5c3b1e;
+    text-decoration: underline;
+}
+
+/* Skills部分
+------------------------------------------------------------*/
+
+.skills {
+    padding: 6rem 0;
+    background-color: #fff;
+}
+
+@media (max-width: 768px) {
+    .skills {
+        padding: 3rem 1rem;
+    }
+}
+
+.skills .container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 67.5rem;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .skills .container {
+        display: block;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+}
+
+.skills-box {
+    width: 33.5%;
+    padding: 3rem 2.75rem;
+    color: #fff;
+    box-shadow: -.75rem .625rem .75rem rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 768px) {
+    .skills-box {
+        width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 1.5rem;
+        padding: 2rem 1.5rem;
+        box-shadow: -.5rem .5rem .75rem rgba(0, 0, 0, 0.25);
+    }
+}
+
+@media (max-width: 768px) {
+    .skills-box:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.color-a {
+    background-color: #5c3b1e;
+}
+
+.color-b {
+    background-color: #b89b7e;
+}
+
+.color-c {
+    background-color: #8c5b32;
+}
+
+.skills-box-heading {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.25rem;
+}
+
+.skills i {
+    margin: 0 1.25rem 0 0;
+    font-size: 2.75rem;
+    color: #fff;
+}
+
+.skills h3 {
+    margin: 0;
+    font-size: 2.2rem;
+    font-weight: 400;
+}
+
+@media (max-width: 768px) {
+    .skills h3 {
+        font-size: 1.6rem;
+    }
+}
+
+.skills p {
+    line-height: 2;
+}
+
+.skills-box h4 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.2rem;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .skills-box h4 {
+        font-size: 1rem;
+    }
+}
+
+.skills-box ul {
+    margin: 0 0 0.75rem;
+    padding-left: 1.2rem;
+}
+
+/* Works部分
+------------------------------------------------------------*/
+
+.works {
+    padding: 6rem 0;
+    background-color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .works {
+        padding: 3rem 0;
+    }
+}
+
+.works .container {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 2%;
+    row-gap: 2.5rem;
+    max-width: 67.5rem;
+    margin: 0 auto;
+    justify-content: space-between;
+
+}
+
+.works-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .works-container {
+        padding: 0 16px;
+    }
+}
+
+.works-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+}
+
+@media (max-width: 768px) {
+    .works-grid {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1.5rem;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .works-grid {
+        justify-content: space-between;
+    }
+}
+
+.works-box {
+    display: block;
+    position: relative;
+    width: 43%;
+    max-width: 43%;
+    color: #555;
+    background-color: #fff;
+    box-shadow: -1rem 1.25rem 1rem rgba(0, 0, 0, 0.04);
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+}
+
+@media (max-width: 768px) {
+    .works-box {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .works-box {
+        width: 48%;
+        max-width: 48%;
+    }
+}
+
+@media (min-width: 1440px) {
+    .works-box {
+        width: 45%;
+        max-width: 45%;
+    }
+}
+
+.works-box-inner {
+    padding: 1.25rem;
+    box-sizing: border-box;
+}
+
+.works-box-inner h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.works-box-inner span {
+    font-size: .75rem;
+    color: #a8a698;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.works-desc {
+    margin: 0.5rem 0;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.6;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .works-desc {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .works-desc {
+        line-height: 1.5;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto;
+        padding-right: 4px;
+    }
+}
+
+.works-desc a {
+    white-space: normal;
+    word-break: break-word;
+}
+
+@media (max-width: 768px) {
+    .works-desc a {
+        white-space: normal !important;
+        word-break: break-word !important;
+        display: inline !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .works-desc br {
+        display: none;
+    }
+}
+
+.works-thumb {
+    width: 100%;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+}
+
+.works-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.works-title a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.works-box:hover {
+    box-shadow: -1rem 1.5rem 1.5rem rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+    transition: 0.2s;
+}
+
+.work-detail {
+    padding: 4rem 0;
+    background: #fff;
+}
+
+.work-detail-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.work-detail-inner img {
+    max-width: 92%;
+    height: auto;
+    display: block;
+    margin: 0 auto 24px auto;
+}
+
+.btn-back-works {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 8px 16px;
+    border: 1px solid #333;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.btn-back-works:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Contact セクション全体
+------------------------------------------------------------ */
+.contact-section {
+    background-color: #ffffff;
+    padding: 4rem 1rem;
+}
+
+@media screen and (max-width: 768px) {
+
+    .contact-section {
+        padding: 3rem 1rem;
+    }
+}
+
+.contact-section .container {
+    max-width: 960px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-lead {
+    margin: 1rem auto 2rem;
+    font-size: 20px;
+    line-height: 1.8;
+}
+
+/* メール & SNS リスト */
+.contact-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.contact-mail {
+    margin-bottom: 1.5rem;
+}
+
+.contact-mail a,
+.contact-sns a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    width: 36%;
+    color: #5c3b1e;
+    background-color: #ffffff;
+    border: 1px solid #5c3b1e;
+    border-radius: 999px;
+    transition: background-color 0.3s, color 0.3s,
+        border-color 0.3s, transform 0.2s;
+}
+
+.contact-mail a {
+    padding: 1rem 2.5rem;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+@media screen and (max-width: 768px) {
+    .contact-mail a {
+        width: 60%;
+        max-width: 320px;
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+.contact-sns a {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+    margin: 0 1.5rem;
+    border-radius: 50%;
+}
+
+@media screen and (max-width: 768px) {
+    .contact-sns a {
+        width: 45px;
+        height: 45px;
+        font-size: 1.5rem;
+    }
+}
+
+.contact-mail a:hover,
+.contact-sns a:hover {
+    background-color: #5c3b1e;
+    color: #ffffff;
+    border-color: #5c3b1e;
+    transform: translateY(-1px);
+}
+
+/* フッター部分
+------------------------------------------------------------*/
+
+footer {
+    padding: 1.25rem 0;
+    font-size: .875rem;
+    font-weight: 300;
+    text-align: center;
+    color: #fff;
+    background-color: #5c3b1e;
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    font-size: 0.875rem;
+}
+
+.back-to-top {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 600;
+}
+
+.back-to-top:hover {
+    text-decoration: underline;
+}
+
+/* 右下固定の「トップへ戻る」ボタン */
+.back-to-top {
+    position: fixed;
+    right: 16px;
+    /* 画面右からの距離 */
+    bottom: 16px;
+    /* 画面下からの距離 */
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    /* 丸いボタン */
+    border: 1px solid #333;
+    background-color: #fff;
+    color: #333;
+    font-size: 20px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    z-index: 999;
+    opacity: 0;
+    /* 最初は非表示 */
+    pointer-events: none;
+    /* クリック不可 */
+    transition: opacity 0.2s ease;
+}
+
+/* 表示状態のときに付けるクラス */
+.back-to-top.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* ホバー時の演出（PC向け） */
+.back-to-top:hover {
+    background-color: #333;
+    color: #fff;
+}
