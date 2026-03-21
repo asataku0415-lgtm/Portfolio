@@ -12,7 +12,7 @@
 
 ## 公開URL
 
-- GitHub Pages: https://asataku0415-lgtm.github.io/Portfolio/
+https://asataku0415-lgtm.github.io/Portfolio/
 
 ## サイトの内容
 
